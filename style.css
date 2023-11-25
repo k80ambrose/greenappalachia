@@ -1,0 +1,43 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.fullscreen-img {
+  position: fixed; /* Start with a fixed position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Use viewport height instead of auto */
+  object-fit: cover;
+  z-index: -1;
+  transition: filter 0.3s ease-out; /* Smooth transition for the blur */
+}
+
+/* After scrolling past a certain point, the image will be positioned absolutely */
+body.unfix .fullscreen-img {
+  position: absolute;
+  height: auto;
+}
+
+.marquee {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+.marquee h1 {
+  font-size: 5em;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: 'EB Garamond', serif;
+}
+
+/* Add some content to scroll into after the marquee image */
+.content-after-marquee {
+  margin-top: 100vh; /* This should be at least the height of the viewport to make room for the fixed image */
+}
